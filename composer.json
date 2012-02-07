@@ -1,0 +1,19 @@
+{
+    "name": "rithis/capusta",
+    "type": "library",
+    "description": "Command line and deployment tool",
+    "keywords": ["command line", "cli", "deploy"],
+    "homepage": "http://rithis.github.com/",
+    "version": "0.1",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.2",
+        "pimple/pimple": "1.0.*",
+        "symfony/class-loader": "2.1.*",
+        "symfony/console": "2.1.*",
+        "symfony/process": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": { "Capusta": "src/" }
+    }
+}
