@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/capusta.php';
+require_once __DIR__ . '/build/capusta.phar';
 
 class DeployTaskProvider implements Rithis\TaskProviderInterface
 {
