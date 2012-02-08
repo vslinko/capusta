@@ -9,6 +9,7 @@ use Symfony\Component\Process\Process;
 class Capusta extends \Pimple
 {
     public $output;
+    public $default = 'help';
 
     public function __construct()
     {
@@ -24,7 +25,7 @@ class Capusta extends \Pimple
             $tasks = array_reverse($input->getArgument('tasks'));
 
             if (count($tasks) == 0) {
-                $this->abort('Sorry, you didn\'t specify some task');
+                $tasks = array($this->default);
             }
 
             foreach ($tasks as $task) {
@@ -84,5 +85,10 @@ class Capusta extends \Pimple
         foreach ($values as $key => $value) {
             $this[$key] = $value;
         }
+    }
+
+    public function setDefault($default)
+    {
+        $this->default = $default;
     }
 }

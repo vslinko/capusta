@@ -42,3 +42,5 @@ $capusta['build'] = function () {
         __HALT_COMPILER();
     ?>');
 };
+
+$capusta->setDefault('build');
