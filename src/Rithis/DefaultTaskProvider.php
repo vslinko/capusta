@@ -25,6 +25,8 @@ class DefaultTaskProvider implements TaskProviderInterface
                     if (count($description) > 1) {
                         $description = $description[1];
                         $description = trim(preg_replace('/^\s+\*/', '', $description));
+                    } else {
+                        $description = "";
                     }
 
                     $tasks[] = sprintf('<info>%-24s</info>%s', $key, $description);
@@ -36,13 +38,15 @@ class DefaultTaskProvider implements TaskProviderInterface
             sort($parameters);
             sort($tasks);
 
-            $capusta->output->writeln('Available parameters:');
-            foreach ($parameters as $parameter) {
-                $capusta->output->write('    ');
-                $capusta->output->writeln($parameter);
+            if (count($parameters) > 0) {
+                $capusta->output->writeln('Available parameters:');
+                foreach ($parameters as $parameter) {
+                    $capusta->output->write('    ');
+                    $capusta->output->writeln($parameter);
+                }
+                $capusta->output->writeln('');
             }
 
-            $capusta->output->writeln('');
             $capusta->output->writeln('Available tasks:');
 
             foreach ($tasks as $task) {
