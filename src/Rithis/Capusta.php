@@ -75,4 +75,13 @@ class Capusta extends \Pimple
     {
         return $this->offsetExists($id) && $this->raw($id) instanceof \Closure;
     }
+
+    public function register(TaskProviderInterface $provider, array $values = array())
+    {
+        $provider->register($this);
+
+        foreach ($values as $key => $value) {
+            $this[$key] = $value;
+        }
+    }
 }
