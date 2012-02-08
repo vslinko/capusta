@@ -6,6 +6,7 @@ $capusta['build'] = function () {
     $files = array(
         __DIR__ . '/src/Rithis/Capusta.php' => 'Rithis/Capusta.php',
         __DIR__ . '/src/Rithis/InputDefinition.php' => 'Rithis/InputDefinition.php',
+        __DIR__ . '/src/Rithis/DefaultTaskProvider.php' => 'Rithis/DefaultTaskProvider.php',
         __DIR__ . '/src/Rithis/TaskProviderInterface.php' => 'Rithis/TaskProviderInterface.php',
         __DIR__ . '/vendor/Pimple/lib/Pimple.php' => 'Pimple.php',
         __DIR__ . '/vendor/Symfony/Component/Console/Output/ConsoleOutput.php' => 'Symfony/Component/Console/Output/ConsoleOutput.php',

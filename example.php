@@ -9,13 +9,18 @@ class DeployTaskProvider implements Rithis\TaskProviderInterface
         $capusta['host'] = array();
         $capusta['checkout'] = "HEAD";
 
-
+        /**
+         * Deploy project on hosts
+         */
         $capusta['deploy'] = function (Rithis\Capusta $capusta) {
             foreach ($capusta['host'] as $host) {
                 $capusta->execute("ssh $host 'cd /var/www; php capusta.php update --checkout={$capusta['checkout']}'");
             }
         };
 
+        /**
+         * Update project
+         */
         $capusta['update'] = function (Rithis\Capusta $capusta) {
             $capusta->execute('git pull');
             $capusta->execute("git checkout {$capusta['checkout']}");
@@ -24,6 +29,9 @@ class DeployTaskProvider implements Rithis\TaskProviderInterface
     }
 }
 
+/**
+ * Use production hosts
+ */
 $capusta['production'] = function (Rithis\Capusta $capusta) {
     $capusta['host'] = array('example.com');
 };

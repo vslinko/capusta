@@ -13,6 +13,7 @@ class Capusta extends \Pimple
     public function __construct()
     {
         $this->output = new ConsoleOutput();
+        $this->register(new DefaultTaskProvider());
     }
 
     public function __destruct()
